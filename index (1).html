@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillBridge - Skill Gap Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <h2>SkillBridge</h2>
+    <p class="small">STUDENT DEVELOPMENT</p>
+    <nav>
+      <a href="#" class="nav-link active" data-page="dashboard">Dashboard</a>
+      <a href="#" class="nav-link" data-page="assessment">Skill Assessment</a>
+      <a href="#" class="nav-link" data-page="progress">Progress Tracking</a>
+      <a href="#" class="nav-link" data-page="reports">Reports</a>
+      <a href="#" class="nav-link" data-page="profile">Student Profile</a>
+      <a href="#" class="nav-link" data-page="taxonomy">Skill Library</a>
+    </nav>
+    <p class="sidebar-bottom">Small steps today lead to big opportunities tomorrow.</p>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button id="menuToggle" class="menu-toggle">☰</button>
+      <div><strong id="pageTitle">Dashboard</strong><p id="todayDate"></p></div>
+    </header>
+
+    <section class="page active" id="page-dashboard">
+      <h1>Welcome, <span id="welcomeName">Student</span>!</h1>
+      <p class="muted">Understand your strengths and improve your career skills.</p>
+      <div class="metrics">
+        <article class="card"><p>Skills assessed</p><h2 id="totalSkills">0</h2></article>
+        <article class="card"><p>Targets achieved</p><h2 id="achievedSkills">0</h2></article>
+        <article class="card"><p>Skills to improve</p><h2 id="gapSkills">0</h2></article>
+        <article class="card"><p>Career match</p><h2 id="careerMatch">0%</h2></article>
+      </div>
+      <article class="card">
+        <h2>Career goal</h2>
+        <p id="dashboardCareer">No assessment yet</p>
+        <div class="progress"><div id="matchBar"></div></div>
+        <p id="dashboardMessage" class="muted">Start an assessment to see your results.</p>
+      </article>
+      <article class="card">
+        <h2>Skills to improve</h2>
+        <ul id="priorityList"><li>Complete an assessment first.</li></ul>
+      </article>
+      <button class="primary" data-goto="assessment">Start Assessment</button>
+    </section>
+
+    <section class="page" id="page-assessment">
+      <h1>Skill Assessment</h1>
+      <p class="muted">Select your career goal and rate your current skills from 0 to 10.</p>
+      <article class="card">
+        <label for="careerSelect">Choose career</label>
+        <select id="careerSelect">
+          <option>Web Developer</option>
+          <option>Data Analyst</option>
+          <option>Software Engineer</option>
+        </select>
+        <label for="assessmentNote">Assessment note (optional)</label>
+        <input id="assessmentNote" placeholder="e.g. First assessment">
+        <div id="skillInputs"></div>
+        <button class="primary" id="analyzeBtn">Analyze My Skills</button>
+        <div id="assessmentResult"></div>
+      </article>
+    </section>
+
+    <section class="page" id="page-progress">
+      <h1>Progress Tracking</h1>
+      <article class="card">
+        <h2>Assessment history</h2>
+        <p id="historyCount">Assessments: 0</p>
+        <div id="historyList">No assessments saved yet.</div>
+      </article>
+    </section>
+
+    <section class="page" id="page-reports">
+      <h1>Skill Gap Report</h1>
+      <article class="card" id="reportArea">Complete an assessment to create your report.</article>
+      <button class="primary" id="printBtn">Print / Save as PDF</button>
+    </section>
+
+    <section class="page" id="page-profile">
+      <h1>Student Profile</h1>
+      <article class="card">
+        <label for="studentName">Full name</label>
+        <input id="studentName" placeholder="Enter your name">
+        <label for="studentEmail">Email</label>
+        <input id="studentEmail" type="email" placeholder="name@example.com">
+        <label for="studentCourse">Course</label>
+        <input id="studentCourse" placeholder="e.g. B.Tech CSE">
+        <label for="studentYear">Year / Semester</label>
+        <input id="studentYear" placeholder="e.g. 1st year">
+        <button class="primary" id="saveProfile">Save Profile</button>
+      </article>
+    </section>
+
+    <section class="page" id="page-taxonomy">
+      <h1>Skill Library</h1>
+      <article class="card">
+        <label for="newSkill">Add a skill</label>
+        <input id="newSkill" placeholder="Enter skill name">
+        <button class="primary" id="addSkill">Add Skill</button>
+        <ul id="skillLibrary"></ul>
+        <p class="muted">This list is for managing your personal skill library. Career assessment skills are built into the sample project.</p>
+      </article>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
